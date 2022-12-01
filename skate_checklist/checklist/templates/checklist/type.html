@@ -1,0 +1,10 @@
+{% extends 'checklist/base.html' %}
+
+{% block content %}
+<h1> ここのタイトルどうしようかな？ </h1>
+<ul>
+{% for type in type_list %}
+ <li><a href="{% url 'checklist:skill' type.id %}">{{ type }}</a></ul>
+{% endfor %}
+</ul>
+{% endblock content %}

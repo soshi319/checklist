@@ -1,0 +1,10 @@
+{% extends 'checklist/base.html' %}
+
+{% block content %}
+<h1> {{ type }} </h1>
+<ul>
+{% for skill in skill_list %}
+ <li><a href="{% url 'checklist:point' type.id skill.id %}">{{ skill }}</a></li>
+{% endfor %}
+</ul>
+{% endblock content %}

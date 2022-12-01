@@ -1,0 +1,16 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<h1>ログイン</h1>
+<form action="{% url 'accounts:check' %}" method="POST" class="pure-form pure-form-stacked">{% csrf_token %}
+    <legend>ログインが必要です</legend>
+    <fieldset>
+       <label for="username">ユーザー名</label>
+       <input type="text" name="username" id="username">
+       <label for="password">パスワード</label>
+       <input type="password" name="password" id="password">
+       <button type="submit" class="pure-button pure-button-primary">
+      ログイン</button>
+    </fieldset>
+</form>
+{% endblock content %}

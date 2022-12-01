@@ -1,0 +1,52 @@
+{% extends 'checklist/base.html' %}
+
+{% block content %}
+<h1> {{type}} - {{skill}} </h1>
+<ul>
+<form action="{% url 'checklist:check' type.id skill.id %}" method="post">
+	{% csrf_token %}
+
+{% for point, star in star_dict.items %}
+ <li><p>{{ point }} -- {{ star }}</p></li>
+ {% if star == 0 %}
+ <input type="radio" id="{{ point }}" name="{{ point }}" value="0" checked>
+ <label for="{{ point }}">0</label>
+ {% else %}
+ <input type="radio" id="{{ point }}" name="{{ point }}" value="0">
+ <label for="{{ point }}">0</label>
+ {% endif %}
+ {% if star == 1 %}
+ <input type="radio" id="{{ point }}" name="{{ point }}" value="1" checked>
+ <label for="{{ point }}">1</label>
+ {% else %}
+ <input type="radio" id="{{ point }}" name="{{ point }}" value="1">
+ <label for="{{ point }}">1</label>
+ {% endif %}
+ {% if star == 2 %}
+ <input type="radio" id="{{ point }}" name="{{ point }}" value="2" checked>
+ <label for="{{ point }}">2</label>
+ {% else %}
+ <input type="radio" id="{{ point }}" name="{{ point }}" value="2">
+ <label for="{{ point }}">2</label>
+ {% endif %}
+ {% if star == 3 %}
+ <input type="radio" id="{{ point }}" name="{{ point }}" value="3" checked>
+ <label for="{{ point }}">3</label>
+ {% else %}
+ <input type="radio" id="{{ point }}" name="{{ point }}" value="3">
+ <label for="{{ point }}">3</label>
+ {% endif %}
+ {% if star == 4 %}
+ <input type="radio" id="{{ point }}" name="{{ point }}" value="4" checked>
+ <label for="{{ point }}">4</label>
+ {% else %}
+ <input type="radio" id="{{ point }}" name="{{ point }}" value="4">
+ <label for="{{ point }}">4</label>
+ {% endif %}
+{% endfor %}
+<br>
+<br>
+<input type="submit" value="save">
+</form>
+</ul>
+{% endblock content %}
